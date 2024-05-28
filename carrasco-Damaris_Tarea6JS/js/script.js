@@ -1,6 +1,6 @@
 //Declarar variables 
-var numeroA; 
-var numeroB; 
+var numeroA;
+var numeroB;
 var operacion;
 var resultado = document.getElementById('resultado');
 
@@ -8,61 +8,38 @@ var resultado = document.getElementById('resultado');
 var reset = document.getElementById('reset');
 var borrar = document.getElementById('borrar');
 
-// Eventos de click
-uno.onclick = function() {
-    resultado.textContent = resultado.textContent  + "1";
+// Bucle para dar evento a los botones numéricos
+for (let i = 0; i < 10; i++) {
+    document.getElementById("b" + i).onclick = function () {
+        resultado.textContent = i + "";
+    }
 }
-dos.onclick = function() {
-    resultado.textContent = resultado.textContent  + "2";
-}
-tres.onclick = function() {
-    resultado.textContent = resultado.textContent  + "3";
-}
-cuatro.onclick = function() {
-    resultado.textContent = resultado.textContent  + "4";
-}
-cinco.onclick = function() {
-    resultado.textContent = resultado.textContent  + "5";
-}
-seis.onclick = function() {
-    resultado.textContent = resultado.textContent  + "6";
-}
-siete.onclick = function() {
-    resultado.textContent = resultado.textContent  + "7";
-}
-ocho.onclick = function() {
-    resultado.textContent = resultado.textContent  + "8";
-}
-nueve.onclick = function() {
-    resultado.textContent = resultado.textContent  + "9";
-}
-cero.onclick = function() {
-    resultado.textContent = resultado.textContent  + "0";
-}
-reset.onclick = function() {
+
+//Eventos de click
+reset.onclick = function () {
     resetear();
 }
-suma.onclick = function() {
+suma.onclick = function () {
     numeroA = resultado.textContent;
     operacion = "+";
     limpiar();
 }
-resta.onclick = function() {
+resta.onclick = function () {
     numeroA = resultado.textContent;
     operacion = "-";
     limpiar();
 }
-multiplicacion.onclick = function() {
+multiplicacion.onclick = function () {
     numeroA = resultado.textContent;
     operacion = "*";
     limpiar();
 }
-division.onclick = function() {
+division.onclick = function () {
     numeroA = resultado.textContent;
     operacion = "/";
     limpiar();
 }
-igual.onclick = function() {
+igual.onclick = function () {
     numeroB = resultado.textContent;
     resolver();
 }
@@ -81,7 +58,7 @@ function resetear() {
 
 function resolver() {
     var solucion = 0;
-    switch(operacion) {
+    switch (operacion) {
         case "+":
             solucion = parseFloat(numeroA) + parseFloat(numeroB);
             break;
